@@ -1,0 +1,31 @@
+$height: 121px;
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin-bottom: $height;
+}
+
+.footer {
+  border: 0;
+  bottom: 0;
+  height: $height;
+  position: absolute;
+  width: 100%;
+}
+
+.footer hr {
+  margin: 0;
+}
+
+.navbar-footer {
+  @include clearfix;
+  padding: 25px 0;
+
+  @media (min-width: $grid-float-breakpoint) {
+    float: left;
+  }
+}

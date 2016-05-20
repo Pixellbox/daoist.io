@@ -37,8 +37,8 @@ gulp.task 'js', ->
     .pipe(gulp.dest 'public')
 
 gulp.task 'watch', ['default'], ->
-  gulp.watch paths.sass, ['css']
-  gulp.watch paths.coffee, ['js']
+  gulp.watch 'client/sass/**/*', ['css']
+  gulp.watch 'client/coffee/**/*', ['js']
   gulp.watch paths.js, ['js']
   gulp.watch paths.bower, ['css', 'js']
 
