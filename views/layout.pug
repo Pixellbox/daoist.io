@@ -1,0 +1,10 @@
+include /mixins/body
+include /mixins/title
+
+doctype html
+html
+  head
+    +title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  +body
+    block content
