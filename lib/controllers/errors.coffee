@@ -1,4 +1,4 @@
-router = (require 'express').Router()
+router = require('../router')('errors')
 
 router.use (rq, rs, next) ->
   err = new Error 'Not Found'
