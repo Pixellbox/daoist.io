@@ -7,8 +7,8 @@ combinedStream = require('combined-stream')
 del = require('del')
 
 paths =
-  sass: 'sass/application.scss'
-  coffee: 'coffee/application.coffee'
+  sass: 'client/sass/application.scss'
+  coffee: 'client/coffee/application.coffee'
   js: []
   css: []
 
