@@ -1,0 +1,25 @@
+{
+  "name": "daoist",
+  "version": "0.0.1",
+  "authors": [
+    "Daoist Devs <devs@daoist.io>"
+  ],
+  "description": "Daoist Platform.",
+  "keywords": [
+    "dao",
+    "ethereum"
+  ],
+  "license": "MIT",
+  "homepage": "www.daoist.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
+  }
+}
