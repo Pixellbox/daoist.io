@@ -7,6 +7,7 @@ combinedStream = require('combined-stream')
 del = require('del')
 bower = require('gulp-bower')
 path = require('path')
+importer = require('node-sass-globbing')
 
 env = process.env.NODE_ENV or 'development'
 
@@ -20,6 +21,7 @@ paths =
 sassConfig =
   outputStyle: (env is 'development' and 'expanded') or 'compressed'
   includePaths: ['vendor/bootstrap-sass/assets/stylesheets']
+  importer: importer
 
 gulp.task 'css', ->
   stream = combinedStream.create()
