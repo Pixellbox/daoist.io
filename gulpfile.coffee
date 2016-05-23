@@ -17,11 +17,9 @@ paths =
   css: []
   bower: ['bower.json']
 
-console.log(path.resolve(__dirname, 'vendor/bootstrap-sass/assets/stylesheets'));
-
 sassConfig =
   outputStyle: (env is 'development' and 'expanded') or 'compressed'
-  includePaths: [path.resolve(__dirname, 'vendor/bootstrap-sass/assets/stylesheets')]
+  includePaths: ['vendor/bootstrap-sass/assets/stylesheets']
 
 gulp.task 'css', ->
   stream = combinedStream.create()
@@ -51,4 +49,4 @@ gulp.task 'clear', (cb) ->
 gulp.task 'bower', ->
   bower()
 
-gulp.task 'default', ['bower', 'css', 'js']
+gulp.task 'default', ['css', 'js']

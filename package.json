@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "gulp"
+    "postinstall": "gulp bower && gulp"
   },
   "engines": {
-    "node": "6.1.0",
+    "node": "5.11.1",
     "npm": "3.7.1"
   },
   "dependencies": {
