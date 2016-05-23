@@ -17,6 +17,8 @@ paths =
   css: []
   bower: ['bower.json']
 
+console.log(path.resolve(__dirname, 'vendor/bootstrap-sass/assets/stylesheets'));
+
 sassConfig =
   outputStyle: (env is 'development' and 'expanded') or 'compressed'
   includePaths: [path.resolve(__dirname, 'vendor/bootstrap-sass/assets/stylesheets')]
