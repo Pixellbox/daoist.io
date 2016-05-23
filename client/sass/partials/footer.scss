@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  margin-bottom: $height;
+  margin-bottom: $height + 60px;
 }
 
 .footer {
@@ -15,10 +15,28 @@ body {
   height: $height;
   position: absolute;
   width: 100%;
-}
 
-.footer hr {
-  margin: 0;
+  hr {
+    border-color: #adadad;
+    margin: 0;
+  }
+
+  .navbar-nav a {
+    background: white !important;
+    color: #adadad !important;
+  }
+
+  .navbar-nav {
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
+
+  @media (min-width: $screen-sm) {
+    .navbar-nav > li > a {
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+  }
 }
 
 .navbar-footer {
