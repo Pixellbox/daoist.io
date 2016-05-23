@@ -1,0 +1,39 @@
+.fake-browser {
+  overflow: hidden;
+}
+
+.fake-browser-header {
+  @include clearfix;
+  background: #dadada;
+  box-sizing: content-box;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  padding: 13px 15px;
+}
+
+.fake-browser-body {
+  background: white;
+  height: 415px;
+  position: relative;
+}
+
+.fake-browser-btn {
+  background: black;
+  border-radius: 50%;
+  float: left;
+  height: 11px;
+  margin-right: 6px;
+  width: 11px;
+}
+
+.fake-browser-close {
+  background: #ec5c56;
+}
+
+.fake-browser-minimize {
+  background: #f6bc3d;
+}
+
+.fake-browser-maximize {
+  background: #62ca43;
+}

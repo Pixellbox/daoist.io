@@ -1,0 +1,29 @@
+.proposal-banner {
+  bottom: 0;
+  background: rgba(black, 0.5);
+  line-height: 1;
+  padding: 55px 40px;
+  position: absolute;
+  width: 100%;
+}
+
+.proposal-banner-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.proposal-author {
+  margin-right: 25px;
+}
+
+.proposal-funding {
+  margin-left: 25px;
+}
+
+.proposal-banner-details {
+  font-family: Rajdhani;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-transform: uppercase;
+}

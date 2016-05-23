@@ -1,0 +1,8 @@
+mixin proposal-banner(title, author, fundingUSD, fundingETH)
+  .proposal-banner
+    .proposal-banner-title= title
+    .proposal-banner-details
+      span.proposal-author by #{author}
+      = '|'
+      span.proposal-funding
+        | #{fundingUSD} / #{fundingETH}
