@@ -6,6 +6,7 @@ coffee = require('gulp-coffee')
 combinedStream = require('combined-stream')
 del = require('del')
 bower = require('gulp-bower')
+path = require('path')
 
 env = process.env.NODE_ENV or 'development'
 
@@ -18,7 +19,7 @@ paths =
 
 sassConfig =
   outputStyle: (env is 'development' and 'expanded') or 'compressed'
-  includePaths: ['vendor/bootstrap-sass/assets/stylesheets']
+  includePaths: [path.resolve(__dirname, 'vendor/bootstrap-sass/assets/stylesheets')]
 
 gulp.task 'css', ->
   stream = combinedStream.create()
