@@ -37,8 +37,7 @@
     @include transition(200ms ease-in-out);
     @include transition-property(left, right);
 
-    &:hover,
-    &:focus {
+    &:hover {
       @include transition-duration(50ms);
     }
   }
@@ -51,8 +50,7 @@
   .arrow-link-left {
     left: -170px;
 
-    &:hover,
-    &:focus {
+    &:hover {
       left: -175px;
     }
   }
@@ -60,8 +58,7 @@
   .arrow-link-right {
     right: -140px;
 
-    &:hover,
-    &:focus {
+    &:hover {
       right: -145px;
     }
   }

@@ -14,7 +14,11 @@ env = process.env.NODE_ENV or 'development'
 paths =
   sass: 'client/sass/application.scss'
   coffee: 'client/coffee/application.coffee'
-  js: ['vendor/jquery/dist/jquery.min.js']
+  js: [
+    'vendor/jquery/dist/jquery.min.js',
+    'vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
+    'vendor/bootstrap-sass/assets/javascripts/bootstrap/carousel.js',
+  ]
   css: []
   bower: ['bower.json']
 

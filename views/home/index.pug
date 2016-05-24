@@ -1,6 +1,7 @@
 extends /layout
 include /mixins/fake_browser
 include /mixins/proposal_banner
+include /mixins/proposal_gallery
 include /mixins/gallery_nav
 
 block content
@@ -14,8 +15,8 @@ block content
       .container
         +gallery-nav
         +fake-browser
+          +proposal-gallery('inkpad')
           +proposal-banner('inkpad')
-          img(src='/images/inkpad_mock.jpg' alt='Inkpad' height='415' width='835')
 
   .container
     .proposal-description
