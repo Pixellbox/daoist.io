@@ -17,3 +17,52 @@
   position: absolute;
   width: 100%;
 }
+
+.jumbotron-gallery .container {
+  position: relative;
+}
+
+.jumbotron-gallery-nav {
+  bottom: 430px;
+  position: absolute;
+  width: 100%;
+
+  .arrow-link {
+    box-sizing: content-box;
+    display: block;
+    height: 46px;
+    padding: 30px;
+    position: absolute;
+    width: 24px;
+    @include transition(200ms ease-in-out);
+    @include transition-property(left, right);
+
+    &:hover,
+    &:focus {
+      @include transition-duration(50ms);
+    }
+  }
+
+  .arrow-link img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .arrow-link-left {
+    left: -170px;
+
+    &:hover,
+    &:focus {
+      left: -175px;
+    }
+  }
+
+  .arrow-link-right {
+    right: -140px;
+
+    &:hover,
+    &:focus {
+      right: -145px;
+    }
+  }
+}

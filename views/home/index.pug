@@ -1,6 +1,7 @@
 extends /layout
 include /mixins/fake_browser
 include /mixins/proposal_banner
+include /mixins/gallery_nav
 
 block content
   .jumbotron.jumbotron-inkpad
@@ -11,6 +12,7 @@ block content
 
     .jumbotron-gallery
       .container
+        +gallery-nav
         +fake-browser
           +proposal-banner('Inkpad – the independent platform for writers', 'idealogue', '$250,000', '2500')
           img(src='/images/inkpad_mock.jpg' alt='Inkpad' height='415' width='835')
