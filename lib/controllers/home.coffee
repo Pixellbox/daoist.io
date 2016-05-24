@@ -1,6 +1,5 @@
 router = require('../router')('home')
 H = require('../helpers/shared')
-_ = require('lodash')
 
 router.get '/',
   H.proposals,
