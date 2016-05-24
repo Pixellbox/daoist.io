@@ -4,6 +4,8 @@ include /mixins/proposal_banner
 include /mixins/proposal_gallery
 include /mixins/gallery_nav
 
+- var proposal = 'inkpad';
+
 block content
   .jumbotron.jumbotron-inkpad
     .container
@@ -15,9 +17,9 @@ block content
       .container
         +gallery-nav
         +fake-browser
-          +proposal-gallery('inkpad')
-          +proposal-banner('inkpad')
+          +proposal-gallery(proposal)
+          +proposal-banner(proposal)
 
   .container
     .proposal-description
-      != inkpads.inkpad
+      != inkpads[proposal]
