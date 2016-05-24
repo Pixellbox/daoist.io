@@ -21,6 +21,7 @@ app.use(cookieParser())
 app.use(express.static(path.join __dirname, 'public'))
 
 app.use(require './lib/controllers/home')
+app.use(require './lib/controllers/proposals')
 app.use(require './lib/controllers/errors')
 
 module.exports = app;

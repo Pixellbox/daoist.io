@@ -1,0 +1,14 @@
+mixin proposalsForm
+  form(action=proposalsPath() method='post')
+    block
+
+mixin input(name, value, options)
+  - options || (options = {})
+  .form-field
+    label(for=name)= options.label
+    if options.type === 'textarea'
+      textarea(name=name)= value
+    else
+      input(type=(options.type || 'text') placeholder=options.placeholder)
+    if options.hint
+      .hint-block= options.hint
