@@ -2,13 +2,14 @@ extends /layout
 include /mixins/proposals
 
 block content
-  - var outlinePlaceholder = 'Please include what it is, what it does, why it matters, approximately how much funding it needs and how long it will take. At least 50 words, but no more than 500, please. Don’t worry about perfection, if we like your proposal,  we’ll help you to make it great before it goes live.'
+  - var outlineHint = 'Please include what it is, what it does, why it matters, approximately how much funding it needs and how long it will take. At least 50 words, but no more than 500, please. Don’t worry about perfection, if we like your proposal,  we’ll help you to make it great before it goes live.'
 
   .container
-    h1 Submit Your Proposal
-    +proposalsForm
-      +input('title', '', { label: 'Proposal Title', placeholder: 'The Mother of All Inventions'})
-      +input('name', '', { label: 'Your Name', placeholder: 'Johanna Q Citizen' })
-      +input('email', '', { label: 'Contact Email Address', type: 'email', placeholder: 'johanna@motherofallinventions.com'})
-      +input('url', '', { label: 'Site URL or PDF link', hint: 'If you don’t have any links, just leave this one blank', placeholder: 'motherofallinventions.com' })
-      +input('outline', '', { label: 'Proposal Outline', type: 'textarea', placeholder: outlinePlaceholder })
+    h3 Submit Your Proposal
+    +proposalsForm(proposal)
+      +input('title', { label: 'Proposal Title', placeholder: 'The Mother of All Inventions'})
+      +input('name', { label: 'Your Name', placeholder: 'Johanna Q Citizen' })
+      +input('email', { label: 'Contact Email Address', type: 'email', placeholder: 'johanna@motherofallinventions.com'})
+      +input('url', { label: 'Site URL or PDF link', hint: 'If you don’t have any links, just leave this one blank', placeholder: 'motherofallinventions.com' })
+      +input('outline', { label: 'Proposal Outline', type: 'textarea', hint: outlineHint })
+      +submit()

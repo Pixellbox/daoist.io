@@ -1,14 +1,25 @@
-mixin proposalsForm
+mixin proposalsForm(_resource_)
+  - resource = _resource_;
+  - resource && !resource.get && (resource.get = function(field) { return ''; });
   form(action=proposalsPath() method='post')
     block
+    - resource = null
 
-mixin input(name, value, options)
+mixin input(name, options)
   - options || (options = {})
-  .form-field
-    label(for=name)= options.label
+  - var fullname = resource && resource.modelName ? (resource.modelName.toLowerCase() + '[' + name + ']') : name;
+  - var value = resource && resource.get ? resource.get(name) : '';
+  - var id = fullname.replace(/[^\w]+/g, '_').replace(/^_+|_+$/, '');
+  .form-group
+    label(for=id)= options.label
     if options.type === 'textarea'
-      textarea(name=name)= value
+      textarea.form-control(name=fullname id=id)= value
     else
-      input(type=(options.type || 'text') placeholder=options.placeholder)
+      .row
+        .col-xs-5
+          input.form-control(type=(options.type || 'text') placeholder=options.placeholder value=value name=fullname id=id)
     if options.hint
-      .hint-block= options.hint
+      .help-block= options.hint
+
+mixin submit
+  button.btn.btn-primary(type='submit') Submit Proposal

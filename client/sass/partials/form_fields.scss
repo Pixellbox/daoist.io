@@ -1,5 +1,35 @@
-.form-field {
+.form-group {
+  margin-bottom: 30px;
+
   label {
-    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 35px 0 20px;
   }
+
+  .form-control {
+    border: 1px solid #9b9b9b;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 45px;
+
+    @include placeholder {
+      color: #adadad;
+    }
+  }
+
+  .help-block {
+    color: #9b9b9b;
+    font-size: 14px;
+    margin: 30px 0 0;
+  }
+
+  textarea.form-control {
+    height: 176px;
+    resize: vertical;
+  }
+}
+
+.form-group + .form-group {
+  border-top: 1px solid #f2f2f2;
 }
