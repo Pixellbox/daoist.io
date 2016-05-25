@@ -23,6 +23,11 @@ exports.addBodyClass = ->
     rs.locals.bodyClasses = _.union(rs.locals.bodyClasses or [], classes)
     next()
 
+exports.status = (code) ->
+  (rq, rs, next) ->
+    rs.status code
+    next()
+
 exports.render = (rq, rs) ->
   defaultClasses = _.filter [rs.locals.controllerName, rs.locals.actionName], (c) -> !!c
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])

@@ -7,6 +7,7 @@ block content
   .container
     h3 Submit Your Proposal
     +proposalsForm(proposal)
+      include /partials/errors
       +input('title', { label: 'Proposal Title', placeholder: 'The Mother of All Inventions'})
       +input('name', { label: 'Your Name', placeholder: 'Johanna Q Citizen' })
       +input('email', { label: 'Contact Email Address', type: 'email', placeholder: 'johanna@motherofallinventions.com'})
