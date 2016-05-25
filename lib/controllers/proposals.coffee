@@ -19,4 +19,8 @@ router.post '/proposals',
   H.action('new')
   H.render
 
+router.get '/proposals/:slug',
+  H.action('show')
+  H.render
+
 module.exports = router;

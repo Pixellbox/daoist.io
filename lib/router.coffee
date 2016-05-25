@@ -1,5 +1,6 @@
 main = (require 'express').Router()
 H = require('./helpers/shared')
+Proposal = require('./models/proposal')
 
 main.use (rq, rs, next) ->
   rs.locals.rootPath = -> '/'
@@ -8,8 +9,24 @@ main.use (rq, rs, next) ->
   rs.locals.proposalSuccessPath = -> "#{rs.locals.proposalsPath()}/success"
   next()
 
+slug = (rq, rs, next, value) ->
+  if /^\w+$/.test(value)
+    new Proposal
+      slug: value
+    .fetch()
+    .then (proposal) ->
+      if proposal
+        rs.locals.proposal = proposal
+        next()
+      else
+        next 'route'
+    .catch next
+  else
+    next 'route'
+
 module.exports = (name) ->
   router = (require 'express').Router()
   router.use main
   router.use H.controller(name) if name
+  router.param 'slug', slug
   router
