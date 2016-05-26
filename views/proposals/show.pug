@@ -1,5 +1,43 @@
 extends /layout
+include /mixins/fake_browser
+include /mixins/proposal_gallery
 
 block content
   .container
-    h3= proposal.get('title')
+    h3 Inkpad – the independent platform for writers
+    ul.proposal-details
+      li By <span class='em'>#{proposal.get('organization')}</span>
+      li.divider
+      li Funding <span class='em'>#{proposal.get('funding')}</span>
+      li.divider
+      li <span class='em'>#{proposal.get('days_left')}</span> days to go
+      li.divider
+      li Vote <span class='em'>#{proposal.get('vote')}%</span> (#{proposal.get('vote_needed')}% needed)
+
+  .proposal-gallery-wrapper
+    +proposal-gallery
+      .container
+        +fake-browser
+          +proposal-gallery
+            +proposal-gallery-items
+              .item.active
+                img(src='http://placehold.it/835x515&text=1' alt='')
+              .item
+                img(src='http://placehold.it/835x515&text=2' alt='')
+              .item
+                img(src='http://placehold.it/835x515&text=3' alt='')
+
+        ol.carousel-indicators
+          li.active(data-target='#proposal-gallery' data-slide-to='0')
+          li(data-target='#proposal-gallery' data-slide-to='1')
+          li(data-target='#proposal-gallery' data-slide-to='2')
+
+  .container
+    .proposal-description
+      != inkpad
+
+    .proposal-description.proposal-milestones
+      h4 Milestones
+
+    .proposal-description.proposal-team
+      h4 Team

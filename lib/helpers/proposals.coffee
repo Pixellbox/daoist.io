@@ -1,6 +1,8 @@
 _ = require('lodash')
 Proposal = require('../models/proposal')
 Checkit = require('checkit')
+inkpad = require('node-inkpad')
+H = require('./shared')
 
 exports.proposalParams = ['title', 'name', 'email', 'url', 'outline']
 
@@ -19,5 +21,15 @@ exports.store = (rq, rs, next) ->
       rs.locals.errors = _.reduce e.errors, (o, v, k) ->
         o[k] = v.message; o
       , {}
+      next()
+    .catch next
+
+exports.inkpad = (rq, rs, next) ->
+  proposal = rs.locals.proposal
+  id = proposal.get('inkpad')
+
+  inkpad(id)
+    .then (result) ->
+      rs.locals.inkpad = H.markdown(result[id], false)
       next()
     .catch next

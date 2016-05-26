@@ -20,6 +20,7 @@ router.post '/proposals',
   H.render
 
 router.get '/proposals/:slug',
+  h.inkpad,
   H.action('show')
   H.render
 
