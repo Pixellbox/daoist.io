@@ -33,6 +33,20 @@ exports.render = (rq, rs) ->
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])
   rs.render "#{rs.locals.controllerName}/#{rs.locals.actionName}"
 
+exports.extractParams = (md) ->
+  rgx = /\s*@param.+$/mg
+  matches = md.match(rgx)
+  params = _.reduce matches, (o, match) ->
+    parts = match.split /\s*;\s*/
+    key = parts[0].replace(/^\s*@param\s+|\s*$/, '')
+    o[key] ||= []
+    o[key].push(parts.slice 1)
+    o
+  , {}
+  params.toString = -> md.replace(rgx, '')
+  console.log params
+  params
+
 exports.inkpads = (rq, rs, next) ->
   proposals = rs.locals.proposals
   ids = _
@@ -45,8 +59,9 @@ exports.inkpads = (rq, rs, next) ->
     .apply(null, ids)
     .then (result) ->
       rs.locals.inkpads = _.reduce proposals, (o, v, k) ->
-        o[k] = exports.markdown(result[v.inkpad], true)
-        o
+        parsed = exports.extractParams(result[v.inkpad])
+        o["#{k}_params"] = parsed
+        o[k] = markdown(parsed.toString()); o
       , {}
       next()
     .catch next
@@ -54,7 +69,3 @@ exports.inkpads = (rq, rs, next) ->
 exports.proposals = (rq, rs, next) ->
   rs.locals.proposals = require('../proposals');
   next()
-
-exports.markdown = (md, intro) ->
-  md = if intro then md.split(/\$intro/)[0] else md.replace(/\$intro/g, '')
-  markdown(md)

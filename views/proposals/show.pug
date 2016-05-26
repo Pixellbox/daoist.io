@@ -36,10 +36,21 @@ block content
     .proposal-description
       != inkpad
 
-    .proposal-description.proposal-milestones
-      h4 Milestones
+    if inkpadParams.milestone && false
+      .proposal-description.proposal-milestones
+        h4 Milestones
 
-  .proposal-team
-    .container
-      .proposal-description.proposal-team
-        h4 Team
+  if inkpadParams.team
+    .proposal-team
+      .container
+        .proposal-description
+          h4 Team
+          .row
+            each member in inkpadParams.team
+              .col-xs-3
+                .team-member
+                  img.team-member-image(src=member[2] alt=member[0])
+                  .team-member-name
+                    = member[0]
+                  .team-member-role
+                    = member[1]
