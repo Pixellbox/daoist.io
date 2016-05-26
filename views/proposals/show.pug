@@ -4,7 +4,7 @@ include /mixins/proposal_gallery
 
 block content
   .container
-    h3 Inkpad – the independent platform for writers
+    h3.proposal-title= proposal.get('full_title')
     ul.proposal-details
       li By <span class='em'>#{proposal.get('organization')}</span>
       li.divider
