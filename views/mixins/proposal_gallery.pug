@@ -1,6 +1,7 @@
-mixin proposal-gallery(project)
-  #proposal-gallery.proposal-gallery.carousel.slide(data-ride='carousel')
-    .carousel-inner(role='listbox')
-      each url, i in proposals[project].foreground_images
-        .item(class=(i === 0 ? 'active' : ''))
-          img(src=url alt='Inkpad')
+mixin proposal-gallery
+  #proposal-gallery.proposal-gallery.carousel.slide(data-ride='carousel')&attributes(attributes)
+    block
+
+mixin proposal-gallery-items
+  .carousel-inner(role='listbox')
+    block

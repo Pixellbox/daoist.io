@@ -3,7 +3,7 @@ H = require('../helpers/shared')
 
 router.get '/',
   H.proposals,
-  H.inkpads(true),
+  H.inkpads,
   H.action('index'),
   H.render
 

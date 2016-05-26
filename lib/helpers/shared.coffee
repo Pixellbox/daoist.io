@@ -33,27 +33,28 @@ exports.render = (rq, rs) ->
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])
   rs.render "#{rs.locals.controllerName}/#{rs.locals.actionName}"
 
-exports.inkpads = (short) ->
-  (rq, rs, next) ->
-    proposals = rs.locals.proposals
-    ids = _
-      .chain(proposals)
-      .values()
-      .map (p) -> p.inkpad
-      .value()
+exports.inkpads = (rq, rs, next) ->
+  proposals = rs.locals.proposals
+  ids = _
+    .chain(proposals)
+    .values()
+    .map (p) -> p.inkpad
+    .value()
 
-    inkpad
-      .apply(null, ids)
-      .then (result) ->
-        rs.locals.inkpads = _.reduce proposals, (o, v, k) ->
-          md = result[v.inkpad]
-          md = if short then md.split(/\$intro/)[0] else md.replace(/\$intro/g, '')
-          o[k] = markdown(md)
-          o
-        , {}
-        next()
-      .catch next
+  inkpad
+    .apply(null, ids)
+    .then (result) ->
+      rs.locals.inkpads = _.reduce proposals, (o, v, k) ->
+        o[k] = exports.markdown(result[v.inkpad], true)
+        o
+      , {}
+      next()
+    .catch next
 
 exports.proposals = (rq, rs, next) ->
   rs.locals.proposals = require('../proposals');
   next()
+
+exports.markdown = (md, intro) ->
+  md = if intro then md.split(/\$intro/)[0] else md.replace(/\$intro/g, '')
+  markdown(md)
