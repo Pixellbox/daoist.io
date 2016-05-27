@@ -1,0 +1,35 @@
+.proposal-badge {
+  background: #ea1832;
+  border-radius: 50%;
+  color: white;
+  font-family: Rajdhani;
+  font-size: 14px;
+  font-weight: bold;
+  height: 115px;
+  line-height: 1.2;
+  position: absolute;
+  right: -35px;
+  text-align: center;
+  text-transform: uppercase;
+  top: -20px;
+  width: 115px;
+}
+
+.proposal-badge-text:after,
+.proposal-badge-text:before {
+  content: '\2605';
+  display: block;
+}
+
+.proposal-badge-text:before {
+  padding: 20px 0 5px;
+}
+
+.proposal-badge-text:after {
+  padding: 7px 0 0;
+}
+
+.proposal-badge-container {
+  position: relative;
+  z-index: 17;
+}
