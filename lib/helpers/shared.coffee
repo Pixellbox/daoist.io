@@ -44,7 +44,6 @@ exports.extractParams = (md) ->
     o
   , {}
   params.toString = -> md.replace(rgx, '')
-  console.log params
   params
 
 exports.inkpads = (rq, rs, next) ->
