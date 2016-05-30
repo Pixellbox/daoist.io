@@ -1,6 +1,7 @@
 extends /layout
 include /mixins/fake_browser
 include /mixins/proposal_gallery
+include /mixins/proposal_video
 
 block content
   - var meta = inkpad.metadata || {};
@@ -18,7 +19,9 @@ block content
         li.divider
         li Vote <span class='em'>#{meta.vote.current}%</span> (#{meta.vote.needed}% needed)
 
-  if meta.gallery
+  +proposal-video(meta.video)
+
+  if meta.gallery && !meta.video
     .proposal-gallery-wrapper
       +proposal-gallery
         //- +proposal-badge

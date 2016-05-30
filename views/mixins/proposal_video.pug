@@ -1,0 +1,7 @@
+mixin proposal-video(vid)
+  - var src = 'https://www.youtube.com/embed/' + vid + '?rel=0&amp;showinfo=0';
+  if vid
+    .proposal-video-wrapper
+      .container
+        .video-wrapper
+          iframe(width='560' height='315' src=src frameborder='0' allowfullscreen)
