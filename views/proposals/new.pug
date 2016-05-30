@@ -5,7 +5,7 @@ block content
   - var outlineHint = 'Please include what it is, what it does, why it matters, approximately how much funding it needs and how long it will take. At least 50 words, but no more than 500, please. Don’t worry about perfection, if we like your proposal,  we’ll help you to make it great before it goes live.'
 
   .container
-    h3 Submit Your Proposal
+    h3.page-title Submit Your Proposal
     +proposalsForm(proposal)
       include /partials/errors
       +input('title', { label: 'Proposal Title', placeholder: 'The Mother of All Inventions'})
