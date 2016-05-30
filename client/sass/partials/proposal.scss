@@ -68,6 +68,14 @@ body.proposals h3 {
   padding: 60px 0 25px;
 }
 
+.proposals.has-team {
+  margin-bottom: 121px;
+
+  .footer hr {
+    display: none;
+  }
+}
+
 .proposals.show {
   .proposal-title {
     line-height: 1.3;

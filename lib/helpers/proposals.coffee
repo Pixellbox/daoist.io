@@ -31,6 +31,8 @@ exports.inkpad = (rq, rs, next) ->
 
   inkpad(id)
     .then (result) ->
-      rs.locals.inkpad = markdown(result[id] or '')
+      md = markdown(result[id] or '')
+      (rs.locals.bodyClasses ||= []).push('has-team') if md.metadata.team
+      rs.locals.inkpad = md
       next()
     .catch next
