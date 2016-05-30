@@ -25,7 +25,7 @@ mixin submit
   button.btn.btn-primary(type='submit') Submit Proposal
 
 mixin team-member-wrapper(peeps)
-  if peeps.length == 9
+  if peeps.length % 3 == 0
     .col-xs-4
       block
   else
