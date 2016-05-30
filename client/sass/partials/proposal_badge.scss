@@ -2,6 +2,7 @@
   background: #ea1832;
   border-radius: 50%;
   color: white;
+  display: none;
   font-family: Rajdhani;
   font-size: 14px;
   font-weight: bold;
@@ -32,4 +33,10 @@
 .proposal-badge-container {
   position: relative;
   z-index: 17;
+}
+
+@include sm {
+  .proposal-badge {
+    display: block;
+  }
 }
