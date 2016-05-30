@@ -23,3 +23,27 @@ mixin input(name, options)
 
 mixin submit
   button.btn.btn-primary(type='submit') Submit Proposal
+
+mixin team-member-wrapper(peeps)
+  if peeps.length == 9
+    .col-xs-4
+      block
+  else
+    .col-xs-3
+      block
+
+mixin team(peeps)
+  if peeps
+    .proposal-team
+      .container
+        .proposal-description
+          h2 Team
+          .row
+            each p in peeps
+              +team-member-wrapper(peeps)
+                .team-member
+                  img.team-member-image(src=p.image alt=p.name)
+                  .team-member-name
+                    = p.name
+                  .team-member-role
+                    = p.role

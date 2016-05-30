@@ -2,6 +2,7 @@ extends /layout
 include /mixins/fake_browser
 include /mixins/proposal_gallery
 include /mixins/proposal_video
+include /mixins/proposals
 
 block content
   - var meta = inkpad.metadata || {};
@@ -41,17 +42,4 @@ block content
     .proposal-description
       != inkpad
 
-  if meta.team
-    .proposal-team
-      .container
-        .proposal-description
-          h2 Team
-          .row
-            each member in meta.team
-              .col-xs-3
-                .team-member
-                  img.team-member-image(src=member.image alt=member.name)
-                  .team-member-name
-                    = member.name
-                  .team-member-role
-                    = member.role
+  +team(meta.team)
