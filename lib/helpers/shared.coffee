@@ -1,6 +1,7 @@
 _ = require('lodash')
 inkpad = require('node-inkpad')
 markdown = require('inkpad-markdown')
+config = require('../config')
 
 exports.action = (actionName) ->
   (rq, rs, next) ->
@@ -33,35 +34,24 @@ exports.render = (rq, rs) ->
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])
   rs.render "#{rs.locals.controllerName}/#{rs.locals.actionName}"
 
-exports.extractParams = (md) ->
-  rgx = /\s*@param.+$/mg
-  matches = md.match(rgx)
-  params = _.reduce matches, (o, match) ->
-    parts = match.split /\s*;\s*/
-    key = parts[0].replace(/^\s*@param\s+|\s*$/, '')
-    o[key] ||= []
-    o[key].push(parts.slice 1)
-    o
-  , {}
-  params.toString = -> md.replace(rgx, '')
-  params
-
 exports.inkpads = (rq, rs, next) ->
   proposals = rs.locals.proposals
-  ids = _
-    .chain(proposals)
-    .values()
-    .map (p) -> p.inkpad
-    .value()
+  # ids = _
+  #   .chain(proposals)
+  #   .values()
+  #   .map (p) -> p.inkpad
+  #   .value()
+  rs.locals.homepageInkpad = config.homepage.inkpad
+
+  ids = [rs.locals.homepageInkpad]
 
   inkpad
     .apply(null, ids)
     .then (result) ->
       rs.locals.inkpads = _.reduce proposals, (o, v, k) ->
-        parsed = exports.extractParams(result[v.inkpad])
-        o["#{k}_params"] = parsed
-        o[k] = markdown(parsed.toString()); o
+        o[k] = markdown(result[v.inkpad] or '').toString(); o
       , {}
+      rs.locals.inkpads.homepageInkpad = markdown(result[rs.locals.homepageInkpad])
       next()
     .catch next
 

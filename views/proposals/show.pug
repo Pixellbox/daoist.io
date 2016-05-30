@@ -3,55 +3,52 @@ include /mixins/fake_browser
 include /mixins/proposal_gallery
 
 block content
+  - var meta = inkpad.metadata || {};
   .container
-    h3.proposal-title= proposal.get('full_title')
+    h3.proposal-title= meta.title
     ul.proposal-details
-      li By <span class='em'>#{proposal.get('organization')}</span>
-      li.divider
-      li Funding <span class='em'>#{proposal.get('funding')}</span>
-      li.divider
-      li <span class='em'>#{proposal.get('days_left')}</span> days to go
-      li.divider
-      li Vote <span class='em'>#{proposal.get('vote')}%</span> (#{proposal.get('vote_needed')}% needed)
+      li By <span class='em'>#{meta.by}</span>
+      if meta.funding
+        li.divider
+        li Funding <span class='em'>#{meta.funding}</span>
+      if typeof meta.days_to_go === 'number'
+        li.divider
+        li <span class='em'>#{meta.days_to_go}</span> days to go
+      if meta.vote
+        li.divider
+        li Vote <span class='em'>#{meta.vote.current}%</span> (#{meta.vote.needed}% needed)
 
-  .proposal-gallery-wrapper
-    +proposal-gallery
-      +proposal-badge
-      .container
-        +fake-browser
-          +proposal-gallery
-            +proposal-gallery-items
-              .item.active
-                img(src='http://placehold.it/835x515&text=1' alt='')
-              .item
-                img(src='http://placehold.it/835x515&text=2' alt='')
-              .item
-                img(src='http://placehold.it/835x515&text=3' alt='')
+  if meta.gallery
+    .proposal-gallery-wrapper
+      +proposal-gallery
+        +proposal-badge
+        .container
+          +fake-browser
+            +proposal-gallery
+              +proposal-gallery-items
+                each src, index in meta.gallery
+                  .item(class=(index === 0 ? 'active' : ''))
+                    img(src=src alt='')
 
-        ol.carousel-indicators
-          li.active(data-target='#proposal-gallery' data-slide-to='0')
-          li(data-target='#proposal-gallery' data-slide-to='1')
-          li(data-target='#proposal-gallery' data-slide-to='2')
+          ol.carousel-indicators
+            each src, index in meta.gallery
+              li(class=(index === 0 ? 'active' : '') data-target='#proposal-gallery' data-slide-to=index)
 
   .container
     .proposal-description
       != inkpad
 
-    if inkpadParams.milestone && false
-      .proposal-description.proposal-milestones
-        h4 Milestones
-
-  if inkpadParams.team
+  if meta.team
     .proposal-team
       .container
         .proposal-description
           h4 Team
           .row
-            each member in inkpadParams.team
+            each member in meta.team
               .col-xs-3
                 .team-member
-                  img.team-member-image(src=member[2] alt=member[0])
+                  img.team-member-image(src=member.image alt=member.name)
                   .team-member-name
-                    = member[0]
+                    = member.name
                   .team-member-role
-                    = member[1]
+                    = member.role

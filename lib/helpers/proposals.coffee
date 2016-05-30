@@ -31,8 +31,6 @@ exports.inkpad = (rq, rs, next) ->
 
   inkpad(id)
     .then (result) ->
-      parsed = H.extractParams(result[id])
-      rs.locals.inkpadParams = parsed
-      rs.locals.inkpad = markdown(parsed.toString())
+      rs.locals.inkpad = markdown(result[id] or '')
       next()
     .catch next
