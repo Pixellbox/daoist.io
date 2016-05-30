@@ -18,7 +18,7 @@ block content
           +proposal-gallery
             +proposal-gallery-items
               each proposal, i in proposals
-                .item(class=(!i ? 'active' : ''))
+                a.item(href=proposalPath(proposal) class=(!i ? 'active' : ''))
                   img(src=(proposal.inkpad.metadata.image || 'http://placehold.it/835x415&text=' + proposal.get('title')) alt=proposal.get('title'))
                   +proposal-banner(proposal)
 

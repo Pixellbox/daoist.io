@@ -7,6 +7,7 @@ main.use (rq, rs, next) ->
   rs.locals.proposalsPath = -> '/proposals'
   rs.locals.newProposalPath = -> "#{rs.locals.proposalsPath()}/new"
   rs.locals.proposalSuccessPath = -> "#{rs.locals.proposalsPath()}/success"
+  rs.locals.proposalPath = (proposal) -> "#{rs.locals.proposalsPath()}/#{proposal.get('slug')}"
   next()
 
 slug = (rq, rs, next, value) ->
