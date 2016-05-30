@@ -1,7 +1,5 @@
 _ = require('lodash')
-inkpad = require('node-inkpad')
-markdown = require('inkpad-markdown')
-config = require('../config')
+
 
 exports.action = (actionName) ->
   (rq, rs, next) ->
@@ -33,28 +31,3 @@ exports.render = (rq, rs) ->
   defaultClasses = _.filter [rs.locals.controllerName, rs.locals.actionName], (c) -> !!c
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])
   rs.render "#{rs.locals.controllerName}/#{rs.locals.actionName}"
-
-exports.inkpads = (rq, rs, next) ->
-  proposals = rs.locals.proposals
-  # ids = _
-  #   .chain(proposals)
-  #   .values()
-  #   .map (p) -> p.inkpad
-  #   .value()
-  rs.locals.homepageInkpad = config.homepage.inkpad
-
-  ids = [rs.locals.homepageInkpad]
-
-  inkpad
-    .apply(null, ids)
-    .then (result) ->
-      rs.locals.inkpads = _.reduce proposals, (o, v, k) ->
-        o[k] = markdown(result[v.inkpad] or '').toString(); o
-      , {}
-      rs.locals.inkpads.homepageInkpad = markdown(result[rs.locals.homepageInkpad])
-      next()
-    .catch next
-
-exports.proposals = (rq, rs, next) ->
-  rs.locals.proposals = require('../proposals');
-  next()

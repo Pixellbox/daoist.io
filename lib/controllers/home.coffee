@@ -1,9 +1,11 @@
 router = require('../router')('home')
 H = require('../helpers/shared')
+h = require('../helpers/home')
 
 router.get '/',
-  H.proposals,
-  H.inkpads,
+  h.proposals,
+  h.inkpads,
+  h.link,
   H.action('index'),
   H.render
 

@@ -1,9 +1,10 @@
-mixin proposal-banner(project)
-  - var data = proposals[project];
+mixin proposal-banner(proposal)
+  - var meta = proposal.inkpad.metadata;
   .proposal-banner
-    .proposal-banner-title= data.title
+    .proposal-banner-title= meta.title
     .proposal-banner-details
-      span.proposal-author by #{data.author}
-      = '|'
-      span.proposal-funding
-        = data.funding
+      span.proposal-author by #{meta.by}
+      if meta.funding
+        = '|'
+        span.proposal-funding
+          = meta.funding

@@ -5,7 +5,6 @@ include /mixins/proposal_gallery
 include /mixins/gallery_nav
 
 block content
-  - var proposal = 'inkpad';
   .jumbotron.jumbotron-inkpad
     .container
       .row
@@ -18,16 +17,11 @@ block content
         +fake-browser
           +proposal-gallery
             +proposal-gallery-items
-              .item.active
-                img(src='http://placehold.it/835x415&text=1' alt='')
-                +proposal-banner(proposal)
-              .item
-                img(src='http://placehold.it/835x415&text=2' alt='')
-                +proposal-banner(proposal)
-              .item
-                img(src='http://placehold.it/835x415&text=3' alt='')
-                +proposal-banner(proposal)
+              each proposal, i in proposals
+                .item(class=(!i ? 'active' : ''))
+                  img(src=(proposal.inkpad.metadata.image || 'http://placehold.it/835x415&text=' + proposal.get('title')) alt=proposal.get('title'))
+                  +proposal-banner(proposal)
 
   .container
     .proposal-description
-      != inkpads.homepageInkpad
+      != homepageInkpad
