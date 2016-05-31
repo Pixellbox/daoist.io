@@ -15,7 +15,6 @@
   background: white;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
-  height: 415px;
   overflow: hidden;
   position: relative;
 }
@@ -39,4 +38,19 @@
 
 .fake-browser-maximize {
   background: #62ca43;
+}
+
+
+// rwd
+
+.fake-browser-body {
+  height: auto;
+
+  @include sm {
+    height: 357px;
+  }
+
+  @include md {
+    height: 415px;
+  }
 }

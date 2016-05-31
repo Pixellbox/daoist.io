@@ -1,7 +1,9 @@
 mixin proposal-banner(proposal)
   - var meta = proposal.inkpad.metadata;
   .proposal-banner
-    .proposal-banner-title= meta.title
+    .proposal-banner-title
+      .hidden-xs= meta.title
+      .visible-xs= proposal.get('title')
     .proposal-banner-details
       span.proposal-author by #{meta.by}
       if meta.funding

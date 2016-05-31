@@ -1,21 +1,15 @@
 .jumbotron {
+  background: url('/images/inkpad_bg_1.jpg') center center no-repeat;
+  background-size: cover;
   color: white;
   margin-bottom: 20px;
-  padding: 150px 0 0;
   position: relative;
 }
 
 .jumbotron h1 {
   font-weight: bold;
   line-height: 1.58;
-  margin: 0;
-}
-
-.jumbotron-gallery {
-  bottom: 0;
-  height: 452px;
-  position: absolute;
-  width: 100%;
+  margin: 0 0 1.5em;
 }
 
 .jumbotron-gallery .item {
@@ -32,40 +26,31 @@
   width: 100%;
 }
 
-.arrow-link {
-  box-sizing: content-box;
-  display: block;
-  height: 46px;
-  padding: 30px;
-  position: absolute;
-  width: 24px;
-  @include transition(200ms ease-in-out);
-  @include transition-property(left, right);
+.jumbotron .carousel-indicators {
+  bottom: -10px;
 }
 
-.arrow-link:hover {
-  @include transition-duration(50ms);
+
+// rwd
+
+.jumbotron {
+  padding: 70px 0 0;
+
+  @include sm {
+    padding: 150px 0 0;
+  }
 }
 
-.arrow-link img {
-  height: 100%;
-  width: 100%;
-}
+.jumbotron h1 {
+  font-size: 0.6 * $jumbotron-heading-font-size;
 
-.arrow-link-left {
-  left: -170px;
-}
+  @include sm {
+    font-size: 0.9 * $jumbotron-heading-font-size;
+  }
 
-.arrow-link-left:hover {
-  left: -175px;
-}
-
-.arrow-link-right {
-  right: -140px;
-}
-
-.arrow-link-right:hover {
-  right: -145px;
+  @include md {
+    font-size: $jumbotron-heading-font-size;
+  }
 }
 
 .jumbotron-gallery-nav {

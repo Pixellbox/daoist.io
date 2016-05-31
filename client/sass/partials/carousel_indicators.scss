@@ -1,0 +1,15 @@
+.carousel-indicators li {
+  border-width: 2px;
+}
+
+.carousel-indicators li,
+.carousel-indicators .active {
+  height: 12px;
+  margin: 0;
+  width: 12px;
+}
+
+.carousel-indicators li + li,
+.carousel-indicators li + .active {
+  margin-left: 20px;
+}

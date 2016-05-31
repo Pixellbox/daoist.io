@@ -3,6 +3,7 @@ include /mixins/fake_browser
 include /mixins/proposal_banner
 include /mixins/proposal_gallery
 include /mixins/gallery_nav
+include /mixins/proposals
 
 block content
   .jumbotron.jumbotron-inkpad
@@ -21,6 +22,7 @@ block content
                 a.item(href=proposalPath(proposal) class=(!i ? 'active' : ''))
                   img(src=(proposal.inkpad.metadata.image || 'http://placehold.it/835x415&text=' + proposal.get('title')) alt=proposal.get('title'))
                   +proposal-banner(proposal)
+            +carousel-indicators('#proposal-gallery', proposals.length)(class='hidden-lg')
 
   .container
     .proposal-description

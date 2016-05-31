@@ -2,7 +2,6 @@
   bottom: 0;
   background: rgba(black, 0.5);
   line-height: 1;
-  padding: 55px 40px;
   position: absolute;
   width: 100%;
 }
@@ -22,8 +21,42 @@
 
 .proposal-banner-details {
   font-family: Rajdhani;
-  font-size: 20px;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 0.5em;
   text-transform: uppercase;
+}
+
+
+// rwd
+
+.proposal-banner {
+  padding: 30px 25px 55px;
+
+  @include sm {
+    padding: 40px 30px 50px;
+  }
+
+  @include md {
+    padding: 55px 40px 65px;
+  }
+
+  @include lg {
+    padding-bottom: 55px;
+  }
+}
+
+.proposal-banner-title {
+  font-size: 18px;
+
+  @include sm {
+    font-size: 24px;
+  }
+}
+
+.proposal-banner-details {
+  font-size: 16px;
+
+  @include sm {
+    font-size: 20px;
+  }
 }

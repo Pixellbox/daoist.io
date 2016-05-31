@@ -47,3 +47,8 @@ mixin team(peeps)
                     = p.name
                   .team-member-role
                     = p.role
+
+mixin carousel-indicators(target, count)
+  ol.carousel-indicators&attributes(attributes)
+    - for (var i = 0; i < count; i++)
+      li(class=(!i ? 'active' : '') data-target=target data-slide-to=i)

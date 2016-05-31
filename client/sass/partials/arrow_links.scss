@@ -1,0 +1,35 @@
+.arrow-link {
+  box-sizing: content-box;
+  display: block;
+  height: 46px;
+  padding: 30px;
+  position: absolute;
+  width: 24px;
+  @include transition(200ms ease-in-out);
+  @include transition-property(left, right);
+}
+
+.arrow-link:hover {
+  @include transition-duration(50ms);
+}
+
+.arrow-link img {
+  height: 100%;
+  width: 100%;
+}
+
+.arrow-link-left {
+  left: -170px;
+}
+
+.arrow-link-left:hover {
+  left: -175px;
+}
+
+.arrow-link-right {
+  right: -140px;
+}
+
+.arrow-link-right:hover {
+  right: -145px;
+}

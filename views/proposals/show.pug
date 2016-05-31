@@ -34,9 +34,7 @@ block content
                   .item(class=(index === 0 ? 'active' : ''))
                     img(src=src alt='')
 
-          ol.carousel-indicators
-            each src, index in meta.gallery
-              li(class=(index === 0 ? 'active' : '') data-target='#proposal-gallery' data-slide-to=index)
+          +carousel-indicators('#proposal-gallery', meta.gallery.length)
 
   .container
     .proposal-description

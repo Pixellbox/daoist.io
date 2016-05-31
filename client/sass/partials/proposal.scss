@@ -118,25 +118,13 @@
 
   .carousel-indicators li {
     border-color: #ea1832;
-    border-width: 2px;
   }
 
   .carousel-indicators .active {
     background: #ea1832;
   }
-
-  .carousel-indicators li,
-  .carousel-indicators .active {
-    height: 12px;
-    margin: 0;
-    width: 12px;
-  }
-
-  .carousel-indicators li + li,
-  .carousel-indicators li + .active {
-    margin-left: 20px;
-  }
 }
+
 
 
 .proposals.show .fake-browser-body {
