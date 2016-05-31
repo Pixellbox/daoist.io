@@ -18,6 +18,7 @@ slug = (rq, rs, next, value) ->
     .then (proposal) ->
       if proposal
         rs.locals.proposal = proposal
+        rs.locals.title = proposal.get('title')
         next()
       else
         next 'route'
