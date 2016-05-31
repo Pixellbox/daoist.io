@@ -101,7 +101,6 @@
   }
 
   .fake-browser-body {
-    height: 515px;
     z-index: 16;
   }
 
@@ -136,5 +135,18 @@
   .carousel-indicators li + li,
   .carousel-indicators li + .active {
     margin-left: 20px;
+  }
+}
+
+
+.proposals.show .fake-browser-body {
+  height: auto;
+
+  @include sm {
+    height: 444px;
+  }
+
+  @include md {
+    height: 515px;
   }
 }
