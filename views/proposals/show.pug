@@ -25,7 +25,8 @@ block content
   if meta.gallery && !meta.video
     .proposal-gallery-wrapper
       +proposal-gallery
-        +proposal-badge
+        if meta.preproposal !== false
+          +proposal-badge
         .container
           +fake-browser
             +proposal-gallery
