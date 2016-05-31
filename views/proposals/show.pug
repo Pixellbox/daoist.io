@@ -24,16 +24,14 @@ block content
 
   if meta.gallery && !meta.video
     .proposal-gallery-wrapper
+      if meta.preproposal !== false
+        +proposal-badge
       +proposal-gallery
-        if meta.preproposal !== false
-          +proposal-badge
         .container
-          +fake-browser
-            +proposal-gallery
-              +proposal-gallery-items
-                each src, index in meta.gallery
-                  .item(class=(index === 0 ? 'active' : ''))
-                    img(src=src alt='')
+          +proposal-gallery-items
+            each src, index in meta.gallery
+              .item(class=(index === 0 ? 'active' : ''))
+                img(src=src alt='')
 
           +carousel-indicators('#proposal-gallery', meta.gallery.length)
 

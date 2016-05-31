@@ -2,3 +2,9 @@
   height: 100%;
   width: 100%;
 }
+
+.proposal-gallery .carousel-inner {
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 0;
+}
