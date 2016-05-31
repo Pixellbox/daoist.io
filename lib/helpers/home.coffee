@@ -1,6 +1,6 @@
 Proposal = require('../models/proposal')
 Promise = require('bluebird')
-inkpad = require('node-inkpad')
+inkpad = require('./inkpads')
 markdown = require('inkpad-markdown')
 _ = require('lodash')
 

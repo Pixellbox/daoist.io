@@ -1,7 +1,7 @@
 _ = require('lodash')
 Proposal = require('../models/proposal')
 Checkit = require('checkit')
-inkpad = require('node-inkpad')
+inkpad = require('./inkpads')
 markdown = require('inkpad-markdown')
 H = require('./shared')
 
