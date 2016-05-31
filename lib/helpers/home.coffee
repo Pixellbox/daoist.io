@@ -7,6 +7,7 @@ _ = require('lodash')
 
 exports.proposals = (rq, rs, next) ->
   Proposal
+    .where(listed: true)
     .query('whereNotNull', 'slug')
     .fetchAll()
     .then (result) ->
