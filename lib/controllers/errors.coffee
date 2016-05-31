@@ -10,7 +10,7 @@ router.use (err, rq, rs, next) ->
   development = (require 'express')().get('env') is 'development'
   params =
     message: err.message
-    error: ((development and err) or {})
+    error: ((development and err) or {status: err.status, message: err.message})
   rs.format
     json: ->
       rs.json params
