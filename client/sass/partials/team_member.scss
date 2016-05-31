@@ -22,4 +22,16 @@
   font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
+  @include text-overflow;
+}
+
+
+.team-member-image {
+  height: 100px;
+  width: 100px;
+
+  @include sm {
+    height: 164px;
+    width: 164px;
+  }
 }
