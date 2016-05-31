@@ -18,6 +18,8 @@ paths =
     'vendor/jquery/dist/jquery.min.js',
     'vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
     'vendor/bootstrap-sass/assets/javascripts/bootstrap/carousel.js',
+    'vendor/hammerjs/hammer.min.js',
+    'vendor/jquery-hammerjs/jquery.hammer.js',
   ]
   css: []
   bower: ['bower.json']

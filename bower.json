@@ -20,6 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6",
+    "hammerjs": "hammer.js#^2.0.8",
+    "jquery-hammerjs": "jquery.hammer.js#^2.0.0"
   }
 }
