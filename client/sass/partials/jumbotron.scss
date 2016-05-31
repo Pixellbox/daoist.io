@@ -39,10 +39,10 @@
 // rwd
 
 .jumbotron {
-  padding: 70px 0 0;
+  padding: 60px 0 0;
 
   @include sm {
-    padding: 150px 0 0;
+    padding: 90px 0 0;
   }
 }
 
@@ -50,11 +50,14 @@
   font-size: 0.6 * $jumbotron-heading-font-size;
 
   @include sm {
-    font-size: 0.9 * $jumbotron-heading-font-size;
+    font-size: 0.75 * $jumbotron-heading-font-size;
   }
 
   @include md {
     font-size: $jumbotron-heading-font-size;
+    left: -5%;
+    position: relative;
+    width: 110%;
   }
 }
 
