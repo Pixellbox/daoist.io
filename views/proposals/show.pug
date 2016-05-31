@@ -26,7 +26,7 @@ block content
     .proposal-gallery-wrapper
       if meta.preproposal !== false
         +proposal-badge
-      +proposal-gallery
+      +proposal-gallery(class='carousel-fade')
         .container
           +proposal-gallery-items
             each src, index in meta.gallery

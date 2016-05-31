@@ -13,7 +13,7 @@ block content
     .jumbotron-gallery
       .container
         +gallery-nav
-        +proposal-gallery
+        +proposal-gallery(class='carousel-fade')
           +proposal-gallery-items
             each proposal, i in proposals
               a.item(href=proposalPath(proposal) class=(!i ? 'active' : ''))
