@@ -1,8 +1,6 @@
 _ = require('lodash')
 Proposal = require('../models/proposal')
 Checkit = require('checkit')
-inkpad = require('./inkpads')
-markdown = require('inkpad-markdown')
 H = require('./shared')
 
 exports.proposalParams = ['title', 'name', 'email', 'url', 'outline']
