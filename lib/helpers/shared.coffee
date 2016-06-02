@@ -34,9 +34,9 @@ exports.render = (rq, rs) ->
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])
   rs.render "#{rs.locals.controllerName}/#{rs.locals.actionName}"
 
-exports.inkpad = (id) ->
+exports.inkpad = (fixedId) ->
   (rq, rs, next) ->
-    id ||= rs.locals.inkpadId
+    id = fixedId || rs.locals.inkpadId
     inkpad(id)
       .then (result) ->
         md = markdown(result[id] or '')
