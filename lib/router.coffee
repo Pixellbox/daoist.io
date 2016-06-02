@@ -4,6 +4,7 @@ Proposal = require('./models/proposal')
 
 main.use (rq, rs, next) ->
   rs.locals.rootPath = -> '/'
+  rs.locals.safePath = -> '/safe'
   rs.locals.proposalsPath = -> '/proposals'
   rs.locals.newProposalPath = -> "#{rs.locals.proposalsPath()}/new"
   rs.locals.proposalSuccessPath = -> "#{rs.locals.proposalsPath()}/success"
