@@ -20,7 +20,6 @@ module.exports = fn = ->
 
   docs.then (docs) ->
     _.each docs, (doc, id) ->
-      console.log 'set', id
       $cache.set id, doc, ttl
   .then ->
     _.reduce ids, (h, id) ->
