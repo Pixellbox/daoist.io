@@ -28,11 +28,5 @@ exports.store = (rq, rs, next) ->
 exports.inkpad = (rq, rs, next) ->
   proposal = rs.locals.proposal
   id = proposal.get('inkpad')
-
-  inkpad(id)
-    .then (result) ->
-      md = markdown(result[id] or '')
-      (rs.locals.bodyClasses ||= []).push('has-team') if md.metadata.team
-      rs.locals.inkpad = md
-      next()
-    .catch next
+  rs.locals.inkpadId = id
+  next()

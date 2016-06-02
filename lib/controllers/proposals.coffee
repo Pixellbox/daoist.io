@@ -21,6 +21,7 @@ router.post '/proposals',
 
 router.get '/proposals/:slug',
   h.inkpad,
+  H.inkpad(),
   H.action('show')
   H.render
 
