@@ -1,8 +1,6 @@
 _ = require('lodash')
 Proposal = require('../models/proposal')
 Checkit = require('checkit')
-inkpad = require('./inkpads')
-markdown = require('inkpad-markdown')
 H = require('./shared')
 
 exports.proposalParams = ['title', 'name', 'email', 'url', 'outline']
@@ -28,11 +26,5 @@ exports.store = (rq, rs, next) ->
 exports.inkpad = (rq, rs, next) ->
   proposal = rs.locals.proposal
   id = proposal.get('inkpad')
-
-  inkpad(id)
-    .then (result) ->
-      md = markdown(result[id] or '')
-      (rs.locals.bodyClasses ||= []).push('has-team') if md.metadata.team
-      rs.locals.inkpad = md
-      next()
-    .catch next
+  rs.locals.inkpadId = id
+  next()

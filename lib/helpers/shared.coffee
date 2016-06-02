@@ -1,4 +1,6 @@
 _ = require('lodash')
+inkpad = require('./inkpads')
+markdown = require('inkpad-markdown')
 
 
 exports.action = (actionName) ->
@@ -31,3 +33,14 @@ exports.render = (rq, rs) ->
   defaultClasses = _.filter [rs.locals.controllerName, rs.locals.actionName], (c) -> !!c
   rs.locals.bodyClasses = _.union(defaultClasses, rs.locals.bodyClasses or [])
   rs.render "#{rs.locals.controllerName}/#{rs.locals.actionName}"
+
+exports.inkpad = (id) ->
+  (rq, rs, next) ->
+    id ||= rs.locals.inkpadId
+    inkpad(id)
+      .then (result) ->
+        md = markdown(result[id] or '')
+        (rs.locals.bodyClasses ||= []).push('has-team') if md.metadata.team
+        rs.locals.inkpad = md
+        next()
+      .catch next
